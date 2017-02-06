@@ -190,9 +190,9 @@ def main():
 
     height = 10
 
-    sel = select(args)
+    ret = select(args)
 
-    ret = ui.menuwin(y, x, height, 0, sel[0], sel[1])
+    ret = ui.menuwin(y, x, height, 0, ret[0], ret[1])
 
     if ret == ui.keyboard['ESC']: exit(args)
 
