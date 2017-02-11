@@ -49,7 +49,7 @@ def menuwin(y, x, height, focus, schema, collect):
 
     curs_height = height
 
-    width = (len(schema)+2)
+    width = (len(schema)+3)
 
     for i in range(len(schema)): width += (int(schema[i][1])+1)
 
@@ -82,7 +82,7 @@ def menu(y, x, height, focus, schema, collect):
 
     for i in range(len(schema)): width += (int(schema[i][1])+1)
 
-    width += (len(schema)-2)
+    width += (len(schema)-1)
 
     color = curses.color_pair(colors['W/BK'])
 

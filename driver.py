@@ -6,6 +6,8 @@ import dbmgr
 
 import ui
 
+import argparse
+
 
 filename = ''
 
@@ -107,6 +109,10 @@ def select(args):
 
             return [dbmgr.schema, ret[1]] 
 
+        else:
+
+            return ret;
+
     elif len(args) == 1:
 
         args = args[0].split(',')
@@ -117,7 +123,8 @@ def select(args):
 
                 for j in range(len(dbmgr.schema)):
 
-                    if args[i] == dbmgr.schema[j][0]: schema.append(dbmgr.schema[j])
+                    if args[i] == dbmgr.schema[j][0]:
+                        schema.append(dbmgr.schema[j])
 
             if len(schema) == 0: return 'NOATTR'
 
@@ -136,9 +143,17 @@ def select(args):
 
             for i in range(len(attrs)):
 
+                is_attr = False
+
                 for j in range(len(dbmgr.schema)):
 
-                    if attrs[i] == dbmgr.schema[j][0]: schema.append(dbmgr.schema[j])
+                    if attrs[i] == dbmgr.schema[j][0]:
+
+                        is_attr = True
+
+                        schema.append(dbmgr.schema[j])
+
+                if not is_attr: return 'NOATTR'
 
             if len(schema) == 0: return 'NOATTR'
 
